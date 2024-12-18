@@ -27,25 +27,26 @@ public class Ejercicio1 {
 		
 		int count = 0; 
 		
-		int[] palabras = new int[contadorPalabras]; 
-		
-		for (int i = 0; i < frase.length(); i++) {
-			if (frase.charAt(i) != ' ') {
-				count++; 
-			} else {
-				break;
-			}
-			palabras[i] = count;
-		}
-		
-		int indiceMayor = palabras[0];
-		int indiceFinal = 0;
-		for (int i = 0; i < palabras.length; i++) {
-			if (palabras[i] > indiceMayor) {
-				indiceFinal = palabras[i];
-			}
-		}
-		
-		System.out.println("La palabra mas larga tiene " + indiceFinal + " caracteres.");				
+		int cantidadPalabras = palabras.length;
+
+        // Variables para las palabras de mayor y menor longitud
+        String palabraMayor = "";
+        String palabraMenor = palabras[0];
+
+        for (String palabra : palabras) {
+            if (palabra.length() > palabraMayor.length()) {
+                palabraMayor = palabra;
+            }
+            if (palabra.length() < palabraMenor.length()) {
+                palabraMenor = palabra;
+            }
+        }
+
+        // Resultados
+        System.out.println("Cantidad de palabras: " + cantidadPalabras);
+        System.out.println("Palabra de mayor longitud: \"" + palabraMayor + "\" con " + palabraMayor.length() + " caracteres.");
+        System.out.println("Palabra de menor longitud: \"" + palabraMenor + "\" con " + palabraMenor.length() + " caracteres.");
+    }
+}		
 	}
 }
